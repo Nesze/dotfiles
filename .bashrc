@@ -33,14 +33,6 @@ alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $
 alias ..='cd ..'
 alias ...='cd ../..'
 
-#ssh
-#if [ -z "$SSH_AUTH_SOCK" ] ; then
-#  print "hey"
-#  eval `ssh-agent -s`
-#  ssh-add ~/.ssh/id_rsa ~/.ssh/ft_AD
-#fi
-ssh-add ~/.ssh/id_rsa ~/.ssh/ft_AD 2>/dev/null
-
 # History stuff
 HISTSIZE=50000
 HISTFILESIZE=50000
