@@ -120,7 +120,7 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 export PATH="node_modules/.bin:$PATH"
 
 # ruby stuff
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
