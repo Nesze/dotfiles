@@ -1,0 +1,35 @@
+[user]
+	name = Zoltan Bodor
+	email = zolidepp@gmail.com
+[github]
+	user = Nesze
+[push]
+	default = simple
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = /Users/zoltan/.gitignore
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	stu = status -uno
+	ls = ls-files
+	br = branch
+	hist = log --pretty=format:'%h %ad [%an] | %s%d' --graph --date=short
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cl = clean -f -d .
+	rs = reset --hard HEAD
+	type = cat-file -t
+	dump = cat-file -p
+	diffc = diff --cached
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prom = false
+[init]
+	templatedir = ~/.git_template
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
