@@ -87,3 +87,8 @@ do
 done
 pwd
 }
+
+#kubernetes
+# source <(kubectl completion bash)
+
+export PATH="/Users/zoltan/Dev/kube1.5:$PATH"
