@@ -67,7 +67,7 @@ MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 alias digg='dig +noall +answer'
 
 # dotfiles cfg
-alias dots='/usr/bin/git --git-dir=/Users/zoltan/.cfg/ --work-tree=/Users/zoltan'
+alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # nice up command for cd ..
 up()
