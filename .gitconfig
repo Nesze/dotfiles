@@ -1,6 +1,7 @@
 [user]
 	name = Zoltan Bodor
 	email = zolidepp@gmail.com
+	signingkey = 540C6F975EEDE895
 [github]
 	user = Nesze
 [push]
@@ -33,3 +34,7 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[credential]
+	helper = store
+[url "https://github.com"]
+	insteadOf = git://github.com
