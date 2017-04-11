@@ -51,6 +51,7 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rust-lang/rust.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
