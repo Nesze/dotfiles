@@ -19,10 +19,9 @@ export EDITOR="vim"
 #export PATH="$(brew --prefix grep)/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 #brew --prefix is painfully slow, let's use absolute paths instead:
 
-if [ -f /usr/local/etc/bash_completion ]; then
-   . /usr/local/etc/bash_completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+    . /usr/local/share/bash-completion/bash_completion
 fi
-
 export PATH="/usr/local/opt/grep/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 #brew doctor suggestion: brew installs executables under this path as well"
@@ -92,3 +91,16 @@ pwd
 # source <(kubectl completion bash)
 
 export PATH="$HOME/Dev/kube1.5:$PATH"
+alias kube="kubectl --context=dev"
+
+# Bash 4.x features
+shopt -s globstar
+
+# tmux stuff
+# outcommented because doesn't handle background color well, and it's better to use 'screen-256color configured in ~/.tmux.conf
+# (also, xterm-256color is the default anyway)
+
+#alias tmux="TERM=xterm-256color tmux"
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
