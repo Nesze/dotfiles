@@ -112,7 +112,7 @@ au FileType go nmap <leader>gv <Plug>(go-vet)
 au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>gs <Plug>(go-implements)
-au FileType go nmap <leader>gn <Plug>(go-run)
+au FileType go nmap <F2> <Plug>(go-run)
 
 " nerdtree bindings
 map <C-\> :NERDTreeToggle<CR>
@@ -192,7 +192,7 @@ set nu
 "set shiftwidth=4
 "set softtabstop=4
 
-" yank and paste from VIM as well"
+" yank and paste to & from VIM as well"
 set clipboard=unnamed
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
