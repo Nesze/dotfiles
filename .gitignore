@@ -1,0 +1,6 @@
+.idea
+*~
+*.swp
+*.orig
+.DS_Store
+.java-version
