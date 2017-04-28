@@ -90,7 +90,6 @@ pwd
 #kubernetes
 # source <(kubectl completion bash)
 
-export PATH="$HOME/Dev/kube1.5:$PATH"
 alias kube="kubectl --context=dev"
 
 # Bash 4.x features
