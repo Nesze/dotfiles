@@ -1,8 +1,4 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2015 Mar 24
+" Started off from vimrc_example.vim
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
