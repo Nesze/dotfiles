@@ -8,7 +8,7 @@
 	default = simple
 [core]
 	editor = /usr/local/bin/vim
-	excludesfile = /Users/zoltan/.gitignore
+	excludesfile = /Users/zoltanbodor/.gitignore
 [alias]
 	co = checkout
 	ci = commit
