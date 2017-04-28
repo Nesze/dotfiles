@@ -52,6 +52,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rust-lang/rust.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,11 +105,17 @@ map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
 
+" vim-go misc
+let g:go_fmt_command = "goimports"
+
 " vim-go bindings
 au FileType go nmap <leader>r <Plug>(go-rename)
+au FileType go nmap <leader>R <Plug>(go-imports)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>T <Plug>(go-test-func)
+au FileType go nmap <leader>a <Plug>(go-alternate-edit)
+au FileType go nmap <leader>C <Plug>(go-test-compile)
 au FileType go nmap <leader>gv <Plug>(go-vet)
 au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
@@ -117,6 +124,9 @@ au FileType go nmap <F2> <Plug>(go-run)
 
 " nerdtree bindings
 map <C-\> :NERDTreeToggle<CR>
+" nerdtree options
+" unideal / would be better to re-use gitignore
+let NERDTreeIgnore=['\--$', '\~$']
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
