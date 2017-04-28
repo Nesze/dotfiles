@@ -40,6 +40,7 @@ ssh-add ~/.ssh/id_rsa 2>/dev/null
 # History stuff
 HISTSIZE=50000
 HISTFILESIZE=50000
+export HISTCONTROL=ignoreboth:erasedups
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Color improvement
