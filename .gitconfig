@@ -38,3 +38,9 @@
 	helper = store
 [url "https://github.com"]
 	insteadOf = git://github.com
+[filter "strongbox"]
+	clean = strongbox clean %f
+	smudge = strongbox smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox diff
