@@ -64,6 +64,7 @@ export PATH="node_modules/.bin:$PATH"
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+alias ll="ls -l"
 alias digg='dig +noall +answer'
 
 # dotfiles cfg
