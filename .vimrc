@@ -124,6 +124,8 @@ map <C-\> :NERDTreeToggle<CR>
 " unideal / would be better to re-use gitignore
 let NERDTreeIgnore=['\--$', '\~$']
 
+autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
