@@ -106,17 +106,69 @@ let g:go_fmt_command = "goimports"
 
 " vim-go bindings
 au FileType go nmap <leader>r <Plug>(go-rename)
-au FileType go nmap <leader>R <Plug>(go-imports)
-au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>T <Plug>(go-test-func)
 au FileType go nmap <leader>a <Plug>(go-alternate-edit)
-au FileType go nmap <leader>C <Plug>(go-test-compile)
 au FileType go nmap <leader>gv <Plug>(go-vet)
 au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>gs <Plug>(go-implements)
 au FileType go nmap <F2> <Plug>(go-run)
+
+"---------------------------------------------------
+" vim-go improvements following the vim-go-tutorial
+" no more :w before running go cmds (build/run/test)
+set autowrite
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>z :cclose<CR>
+
+" disable location list by using quickfix window instead
+let g:go_list_type = "quickfix"
+
+" default is 10s. nonetheless, make this visible
+let g:go_test_timeout = '10s'
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" more highlighting
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+
+" tab = 4 space (default is 8)
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" make these visible (even though they probably are the default)
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+
+" disable this it's annoying
+"let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+
+let g:go_metalinter_deadline = "5s"
+
+" show type info in status bar
+let g:go_auto_type_info = 1
+set updatetime=200
+
+" auto highlight type usages
+let g:go_auto_sameids = 1
+
+"end of vim-go config / improvements
+"-----------------------------------
 
 " nerdtree bindings
 map <C-\> :NERDTreeToggle<CR>
@@ -124,6 +176,7 @@ map <C-\> :NERDTreeToggle<CR>
 " unideal / would be better to re-use gitignore
 let NERDTreeIgnore=['\--$', '\~$']
 
+" syncn NERDTree with opened file
 autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
