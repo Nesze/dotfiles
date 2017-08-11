@@ -93,6 +93,8 @@ pwd
 # source <(kubectl completion bash)
 
 alias kube="kubectl --context=dev"
+alias k=kube
+alias kp="kubectl --context=prod"
 
 # Bash 4.x features
 shopt -s globstar
