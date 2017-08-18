@@ -165,7 +165,7 @@ let g:go_auto_type_info = 1
 set updatetime=200
 
 " auto highlight type usages
-let g:go_auto_sameids = 1
+"let g:go_auto_sameids = 1
 
 "end of vim-go config / improvements
 "-----------------------------------
@@ -177,7 +177,7 @@ map <C-\> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\--$', '\~$']
 
 " syncn NERDTree with opened file
-autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+"autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
