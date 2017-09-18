@@ -107,3 +107,6 @@ shopt -s globstar
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# git clean-up
+alias gitclean='git br --merged | grep -v master | xargs git br -d'

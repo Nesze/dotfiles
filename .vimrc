@@ -162,7 +162,7 @@ let g:go_metalinter_deadline = "5s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
-set updatetime=200
+set updatetime=500
 
 " auto highlight type usages
 "let g:go_auto_sameids = 1
