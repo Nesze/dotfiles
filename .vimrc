@@ -46,6 +46,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'rust-lang/rust.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'dracula/vim'
@@ -163,12 +164,21 @@ let g:go_metalinter_deadline = "5s"
 " show type info in status bar
 let g:go_auto_type_info = 1
 set updatetime=500
-
+"
 " auto highlight type usages
 "let g:go_auto_sameids = 1
 
 "end of vim-go config / improvements
 "-----------------------------------
+
+" Auto-completion changes
+" Move up and down in autocomplete with <c-j> and <c-k>
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
+set completeopt-=preview
+
+" autocmd FileType go let completefunc=&omnifunc
 
 " nerdtree bindings
 map <C-\> :NERDTreeToggle<CR>
