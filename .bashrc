@@ -27,6 +27,9 @@ export PATH="/usr/local/opt/grep/bin:/usr/local/opt/coreutils/libexec/gnubin:$PA
 #brew doctor suggestion: brew installs executables under this path as well"
 export PATH="/usr/local/sbin:$PATH"
 
+#dev binaries
+export PATH="$HOME/Dev/bin:$PATH"
+
 # Short of learning how to actually configure OSX, here's a hacky way to use
 # GNU manpages for programs that are GNU ones, and fallback to OSX manpages otherwise
 alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
@@ -64,7 +67,8 @@ export PATH="node_modules/.bin:$PATH"
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-alias ll="ls -l"
+alias ll="ls -lh"
+alias ld="ls -ld */"
 alias digg='dig +noall +answer'
 
 # dotfiles cfg
@@ -91,10 +95,12 @@ pwd
 
 #kubernetes
 # source <(kubectl completion bash)
-
 alias kube="kubectl --context=dev"
 alias k=kube
 alias kp="kubectl --context=prod"
+
+alias kl="kail --context dev -n billing"
+alias klp="kail --context prod -n billing"
 
 # Bash 4.x features
 shopt -s globstar
