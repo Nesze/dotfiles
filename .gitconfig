@@ -23,6 +23,7 @@
 	type = cat-file -t
 	dump = cat-file -p
 	diffc = diff --cached
+	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
