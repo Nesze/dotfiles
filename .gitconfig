@@ -38,8 +38,8 @@
 	process = git-lfs filter-process
 [credential]
 	helper = store
-[url "https://github.com"]
-	insteadOf = git://github.com
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [filter "strongbox"]
 	clean = strongbox clean %f
 	smudge = strongbox smudge %f
