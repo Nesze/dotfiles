@@ -12,11 +12,6 @@ export EDITOR="vim"
 
 #Brew stuff >>>
 
-#if [ -f `brew --prefix`/etc/bash_completion ]; then
-#   . `brew --prefix`/etc/bash_completion
-#fi
-#prefer GNU cmds upon BSD implementations
-#export PATH="$(brew --prefix grep)/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 #brew --prefix is painfully slow, let's use absolute paths instead:
 
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
