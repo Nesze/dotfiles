@@ -113,3 +113,5 @@ shopt -s globstar
 
 # git clean-up
 alias gitclean='git br --merged | grep -v master | xargs git br -d'
+
+export CLICOLOR=1
