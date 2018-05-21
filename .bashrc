@@ -13,11 +13,11 @@ export EDITOR="vim"
 #Brew stuff >>>
 
 #brew --prefix is painfully slow, let's use absolute paths instead:
-
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
 fi
-export PATH="/usr/local/opt/grep/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#prefer GNU cmds upon BSD implementations
+#export PATH="/usr/local/opt/grep/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 #brew doctor suggestion: brew installs executables under this path as well"
 export PATH="/usr/local/sbin:$PATH"
