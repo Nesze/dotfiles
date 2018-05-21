@@ -90,12 +90,14 @@ pwd
 
 #kubernetes
 # source <(kubectl completion bash)
-alias kube="kubectl --context=dev"
-alias k=kube
+alias k="kubectl"
 alias kp="kubectl --context=prod"
 
-alias kl="kail --context dev -n billing"
-alias klp="kail --context prod -n billing"
+alias kl="kail -n billing"
+
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+export KUBE_PS1_SYMBOL_COLOR="green"
+export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
 
 # Bash 4.x features
 shopt -s globstar
