@@ -165,10 +165,19 @@ let g:go_metalinter_deadline = "5s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
-set updatetime=500
+set updatetime=100
 "
 " auto highlight type usages
 "let g:go_auto_sameids = 1
+
+" make this visible
+let g:go_decls_includes = "func,type"
+
+" more options for opening alternate files
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 "end of vim-go config / improvements
 "-----------------------------------
