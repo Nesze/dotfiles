@@ -109,12 +109,17 @@ let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r <Plug>(go-rename)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>T <Plug>(go-test-func)
+au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <leader>a <Plug>(go-alternate-edit)
-au FileType go nmap <leader>gv <Plug>(go-vet)
 au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
+au FileType go nmap <leader>ge <Plug>(go-callees)
 au FileType go nmap <leader>gs <Plug>(go-implements)
 au FileType go nmap <F2> <Plug>(go-run)
+" go-doc shortcut is K by default
+"au FileType go nmap <F3> <Plug>(go-doc)
+"au FileType go nmap <leader>gf <Plug>(go-decls)
+"au FileType go nmap <leader>gF <Plug>(go-decls-dir)
 
 "---------------------------------------------------
 " vim-go improvements following the vim-go-tutorial
