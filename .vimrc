@@ -26,7 +26,7 @@ call vundle#begin()
 
 	" let Vundle manage Vundle, required
 	Plugin 'gmarik/Vundle.vim'
-	"Plugin 'scrooloose/nerdtree'
+	Plugin 'scrooloose/nerdtree'
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'tpope/vim-rhubarb'
 	Plugin 'rust-lang/rust.vim'
@@ -40,10 +40,10 @@ call vundle#begin()
 	Plugin 'AndrewRadev/splitjoin.vim'
 	Plugin 'SirVer/ultisnips'
 	Plugin 'fatih/molokai'
-	"Plugin 'ctrlpvim/ctrlp.vim'
+	Plugin 'ctrlpvim/ctrlp.vim'
 	Plugin 'maralla/completor.vim'
-	"Plugin 'majutsushi/tagbar'
-	"
+	Plugin 'majutsushi/tagbar'
+
 	Plugin 'jiangmiao/auto-pairs'
 
 	Plugin 'tpope/vim-surround'
@@ -145,7 +145,6 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
-
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
