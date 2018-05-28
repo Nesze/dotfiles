@@ -288,6 +288,11 @@ else
 
 endif " has("autocmd")
 
+" disable this - saving large files way too slow
+" folding
+"set foldmethod=syntax
+"set nofoldenable
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
