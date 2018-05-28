@@ -248,10 +248,10 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   
-  colorscheme molokai
   "set t_Co=256
-  "let g:molokai_original = 1
-  "let g:rehash256 = 1
+  let g:molokai_original = 1
+  let g:rehash256 = 1
+  colorscheme molokai
 
   set hlsearch
 endif
