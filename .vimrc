@@ -159,11 +159,8 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " make these visible (even though they probably are the default)
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-
-" disable this it's annoying
-"let g:go_metalinter_autosave = 1
-"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_deadline = "5s"
 
 " show type info in status bar
