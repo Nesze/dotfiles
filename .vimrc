@@ -128,7 +128,7 @@ set autowrite
 
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-nnoremap <leader>z :cclose<CR>
+nnoremap <C-x> :cclose<CR>
 
 " disable location list by using quickfix window instead
 let g:go_list_type = "quickfix"
