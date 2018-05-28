@@ -115,3 +115,5 @@ shopt -s globstar
 alias gitclean='git br --merged | grep -v master | xargs git br -d'
 
 export CLICOLOR=1
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
