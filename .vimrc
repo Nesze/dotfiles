@@ -179,6 +179,9 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 
+"end of vim-go config / improvements
+"-----------------------------------
+
 let g:completor_gocode_binary = '/Users/zoltanbodor/Dev/go/bin/gocode'
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -215,8 +218,6 @@ let g:tagbar_type_go = {
 
 nmap <F8> :TagbarToggle<CR>
 
-"end of vim-go config / improvements
-"-----------------------------------
 
 " Auto-completion changes
 " Move up and down in autocomplete with <c-j> and <c-k>
