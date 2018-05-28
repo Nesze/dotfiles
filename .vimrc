@@ -225,6 +225,8 @@ inoremap <expr> <c-k> ("\<C-p>")
 
 set completeopt-=preview
 
+set statusline+=%f
+
 " autocmd FileType go let completefunc=&omnifunc
 
 " nerdtree bindings
