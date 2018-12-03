@@ -62,7 +62,7 @@ export PATH="node_modules/.bin:$PATH"
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-alias ll="ls -lh"
+alias ll="exa -l"
 alias ld="ls -ld */"
 alias digg='dig +noall +answer'
 
@@ -91,7 +91,7 @@ pwd
 #kubernetes
 # source <(kubectl completion bash)
 alias k="kubectl"
-alias kp="kubectl --context=prod"
+alias kp="kubectl --context=prod-aws"
 
 alias kl="kail -n billing"
 
@@ -113,7 +113,11 @@ shopt -s globstar
 
 # git clean-up
 alias gitclean='git br --merged | grep -v master | xargs git br -d'
+alias githead="git log | head -1 | awk '{print \$2}'"
+alias ghcp="githead | tr -d '\n' | pbcopy"
 
 export CLICOLOR=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval $(thefuck --alias)
