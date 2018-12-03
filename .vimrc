@@ -69,6 +69,8 @@ let g:terraform_fmt_on_save = 1
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+nnoremap <F5> mzgg=G`z
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
