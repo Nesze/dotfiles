@@ -16,9 +16,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   " let Vundle manage Vundle, required
   Plugin 'gmarik/Vundle.vim'
+
   Plugin 'scrooloose/nerdtree'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-rhubarb'
   Plugin 'rust-lang/rust.vim'
   Plugin 'editorconfig/editorconfig-vim'
   Plugin 'dracula/vim'
@@ -27,23 +26,44 @@ call vundle#begin()
   Plugin 'mxw/vim-jsx'
   
   Plugin 'fatih/vim-go'
+  Plugin 'fatih/molokai'
   Plugin 'AndrewRadev/splitjoin.vim'
   Plugin 'SirVer/ultisnips'
-  Plugin 'fatih/molokai'
   Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'maralla/completor.vim'
+
   Plugin 'majutsushi/tagbar'
-  
+
+  Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plugin 'neoclide/vim-node-rpc'
+  " adding sources:
+  " run :CocInstall coc-gocode
+  " run :CocInstall coc-ultisnips
+
   Plugin 'jiangmiao/auto-pairs'
   
-  Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-commentary.git'
+  Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-repeat'
+  Plugin 'tpope/vim-rhubarb'
+  Plugin 'tpope/vim-surround'
 " All of your Plugins must be added before the following line
 call vundle#end()
 
 " required
 filetype plugin indent on
+
+" TODO why "\<Tab>" does not work
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" TODO why it doesn't work
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" Auto-completion changes
+" Move up and down in autocomplete with <c-j> and <c-k>
+inoremap <expr> <c-j> "\<C-n>"
+inoremap <expr> <c-k> "\<C-p>"
+
+set completeopt-=preview
 
 " <--- End of vundle settings
 
@@ -148,18 +168,12 @@ set updatetime=100
 
 let g:go_decls_includes = "func,type"
 
+let g:go_gocode_propose_source = 0
+
 " auto highlight type usages
 "let g:go_auto_sameids = 1
 
 " <--- End of vim-go config
-
-let g:completor_gocode_binary = '/Users/zoltanbodor/Dev/go/bin/gocode'
-let g:completor_disable_filename = ['vim']
-let g:go_gocode_propose_source = 0
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -191,13 +205,6 @@ let g:tagbar_type_go = {
 
 nmap <F8> :TagbarToggle<CR>
 
-
-" Auto-completion changes
-" Move up and down in autocomplete with <c-j> and <c-k>
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-set completeopt-=preview
 
 set statusline+=%f
 
