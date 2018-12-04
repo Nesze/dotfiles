@@ -24,7 +24,7 @@ call vundle#begin()
   Plugin 'hashivim/vim-terraform'
   Plugin 'pangloss/vim-javascript'
   Plugin 'mxw/vim-jsx'
-  
+
   Plugin 'fatih/vim-go'
   Plugin 'fatih/molokai'
   Plugin 'AndrewRadev/splitjoin.vim'
@@ -39,8 +39,10 @@ call vundle#begin()
   " run :CocInstall coc-gocode
   " run :CocInstall coc-ultisnips
 
+  Plugin 'christoomey/vim-tmux-navigator'
+
   Plugin 'jiangmiao/auto-pairs'
-  
+
   Plugin 'tpope/vim-commentary.git'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-repeat'
@@ -51,6 +53,8 @@ call vundle#end()
 
 " required
 filetype plugin indent on
+
+" <--- End of vundle settings
 
 " TODO why "\<Tab>" does not work
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -64,8 +68,6 @@ inoremap <expr> <c-j> "\<C-n>"
 inoremap <expr> <c-k> "\<C-p>"
 
 set completeopt-=preview
-
-" <--- End of vundle settings
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -117,7 +119,7 @@ au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>ge <Plug>(go-callees)
 au FileType go nmap <leader>gs <Plug>(go-implements)
-au FileType go nmap <F2> <Plug>(go-run)
+" au FileType go nmap <F2> <Plug>(go-run)
 "au FileType go nmap <leader>gf <Plug>(go-decls)
 "au FileType go nmap <leader>gF <Plug>(go-decls-dir)
 
@@ -149,6 +151,14 @@ set autowrite
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <C-x> :cclose<CR>
+
+" easier window navigation
+map <C-w><C-h> <C-h>
+map <C-w><C-j> <C-j>
+map <C-w><C-k> <C-k>
+map <C-w><C-l> <C-l>
+" default is <C-l>
+map <F2> :redraw!<CR>
 
 " disable location list by using quickfix window instead
 let g:go_list_type = "quickfix"
