@@ -89,6 +89,7 @@ set directory=~/.vim/tmp/.swp//
 let g:terraform_fmt_on_save = 1
 
 " Don't use Ex mode, use Q for formatting
+" TODO make this useful
 map Q gq
 
 nnoremap <F5> mzgg=G`z
@@ -119,6 +120,7 @@ au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>ge <Plug>(go-callees)
 au FileType go nmap <leader>gs <Plug>(go-implements)
+au FileType go nmap <F4> :GoFmt<CR>
 " au FileType go nmap <F2> <Plug>(go-run)
 "au FileType go nmap <leader>gf <Plug>(go-decls)
 "au FileType go nmap <leader>gF <Plug>(go-decls-dir)
@@ -148,18 +150,6 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " no more :w before running go cmds (build/run/test)
 set autowrite
 
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <C-x> :cclose<CR>
-
-" easier window navigation
-map <C-w><C-h> <C-h>
-map <C-w><C-j> <C-j>
-map <C-w><C-k> <C-k>
-map <C-w><C-l> <C-l>
-" default is <C-l>
-map <F2> :redraw!<CR>
-
 " disable location list by using quickfix window instead
 let g:go_list_type = "quickfix"
 
@@ -184,6 +174,19 @@ let g:go_gocode_propose_source = 0
 "let g:go_auto_sameids = 1
 
 " <--- End of vim-go config
+"
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <C-x> :cclose<CR>
+
+" easier window navigation
+map <C-w><C-h> <C-h>
+map <C-w><C-j> <C-j>
+map <C-w><C-k> <C-k>
+map <C-w><C-l> <C-l>
+" default is <C-l>
+map <F2> :redraw!<CR>
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
