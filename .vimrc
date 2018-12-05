@@ -250,10 +250,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
-
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
 
@@ -264,9 +260,6 @@ autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-
-augroup END
-
 
 " disable this - saving large files way too slow
 " TODO
