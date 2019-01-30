@@ -102,6 +102,9 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
 # Bash 4.x features
 shopt -s globstar
 
+# Source brew envs
+source $HOME/.brew
+
 # tmux stuff
 # outcommented because doesn't handle background color well, and it's better to use 'screen-256color configured in ~/.tmux.conf
 # (also, xterm-256color is the default anyway)
