@@ -12,7 +12,7 @@ export EDITOR="vim"
 
 #Brew stuff >>>
 
-#brew --prefix is painfully slow, let's use absolute paths instead:
+#brew --prefix is painfully slow, use absolute paths instead:
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
 fi
@@ -123,4 +123,5 @@ export CLICOLOR=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-eval $(thefuck --alias)
+# funny, but slow
+# eval $(thefuck --alias)
