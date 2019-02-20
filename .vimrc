@@ -10,6 +10,7 @@ filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
 
 " alternatively, pass a path where Vundle should install plugins
 " e.g. call vundle#begin('~/some/path/here')
@@ -29,8 +30,9 @@ call vundle#begin()
   Plugin 'fatih/molokai'
   Plugin 'AndrewRadev/splitjoin.vim'
   Plugin 'SirVer/ultisnips'
-  Plugin 'ctrlpvim/ctrlp.vim'
 
+  Plugin 'junegunn/fzf.vim'
+  Plugin 'vim-gitgutter'
   Plugin 'majutsushi/tagbar'
 
   Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
