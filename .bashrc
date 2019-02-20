@@ -122,6 +122,7 @@ alias ghcp="githead | tr -d '\n' | pbcopy"
 export CLICOLOR=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # funny, but slow
 # eval $(thefuck --alias)
