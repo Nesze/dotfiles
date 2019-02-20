@@ -36,7 +36,8 @@ call vundle#begin()
   Plugin 'majutsushi/tagbar'
 
   Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-  Plugin 'neoclide/vim-node-rpc'
+  " required:
+  " $ yarn global add vim-node-rpc
   " adding sources:
   " run :CocInstall coc-gocode
   " run :CocInstall coc-ultisnips
