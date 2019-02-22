@@ -123,6 +123,7 @@ au FileType go nmap <leader>gr <Plug>(go-referrers)
 au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>ge <Plug>(go-callees)
 au FileType go nmap <leader>gs <Plug>(go-implements)
+au FileType go nmap <F3> :GoDeclsDir<CR>
 au FileType go nmap <F4> :GoFmt<CR>
 " au FileType go nmap <F2> <Plug>(go-run)
 "au FileType go nmap <leader>gf <Plug>(go-decls)
