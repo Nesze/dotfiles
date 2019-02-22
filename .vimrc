@@ -196,6 +196,8 @@ map <C-w><C-l> <C-l>
 " default is <C-l>
 map <F2> :redraw!<CR>
 
+autocmd FileType help noremap <buffer> q :q<cr>
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
