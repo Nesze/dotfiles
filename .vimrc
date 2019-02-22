@@ -174,6 +174,10 @@ let g:go_decls_includes = "func,type"
 
 let g:go_gocode_propose_source = 0
 
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+
 " auto highlight type usages
 "let g:go_auto_sameids = 1
 
