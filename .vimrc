@@ -32,7 +32,7 @@ call vundle#begin()
   Plugin 'SirVer/ultisnips'
 
   Plugin 'junegunn/fzf.vim'
-  Plugin 'vim-gitgutter'
+  Plugin 'airblade/vim-gitgutter'
   Plugin 'majutsushi/tagbar'
 
   Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
