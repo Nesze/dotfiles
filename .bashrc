@@ -66,6 +66,7 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 #kubernetes
 # source <(kubectl completion bash)
 alias k="kubectl"
+complete -o default -F __start_kubectl k
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_COLOR="green"
