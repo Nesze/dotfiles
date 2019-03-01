@@ -1,7 +1,3 @@
-#jenv - deprecated
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
-
 #Golang variables
 export GOPATH="$HOME/Dev/go"
 export GOBIN="$GOPATH/bin"
@@ -10,14 +6,10 @@ export PATH="$GOBIN:$PATH"
 #Other vars
 export EDITOR="vim"
 
-#Brew stuff >>>
-
 #brew --prefix is painfully slow, use absolute paths instead:
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
 fi
-#prefer GNU cmds upon BSD implementations
-#export PATH="/usr/local/opt/grep/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 #brew doctor suggestion: brew installs executables under this path as well"
 export PATH="/usr/local/sbin:$PATH"
@@ -42,17 +34,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # Color improvement
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-#export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-
 export PATH="node_modules/.bin:$PATH"
-
-# ruby stuff
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -68,6 +50,10 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 alias k="kubectl"
 complete -o default -F __start_kubectl k
 
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_COLOR="green"
 export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
@@ -77,12 +63,6 @@ shopt -s globstar
 
 # Source brew envs
 source $HOME/.brew
-
-# tmux stuff
-# outcommented because doesn't handle background color well, and it's better to use 'screen-256color configured in ~/.tmux.conf
-# (also, xterm-256color is the default anyway)
-
-#alias tmux="TERM=xterm-256color tmux"
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -100,6 +80,3 @@ export FZF_TMUX=1
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-
-# funny, but slow
-# eval $(thefuck --alias)
