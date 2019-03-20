@@ -45,12 +45,14 @@ call vundle#begin()
   Plugin 'christoomey/vim-tmux-navigator'
 
   Plugin 'jiangmiao/auto-pairs'
-
+  Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-commentary.git'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-rhubarb'
+  Plugin 'tpope/vim-sensible'
   Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-unimpaired'
 " All of your Plugins must be added before the following line
 call vundle#end()
 
