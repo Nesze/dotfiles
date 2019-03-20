@@ -18,33 +18,14 @@ call vundle#begin()
   " let Vundle manage Vundle, required
   Plugin 'gmarik/Vundle.vim'
 
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'rust-lang/rust.vim'
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'dracula/vim'
-  Plugin 'hashivim/vim-terraform'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'mxw/vim-jsx'
-
-  Plugin 'fatih/vim-go'
-  Plugin 'fatih/molokai'
+  " general
   Plugin 'AndrewRadev/splitjoin.vim'
-  Plugin 'SirVer/ultisnips'
-
-  Plugin 'junegunn/fzf.vim'
   Plugin 'airblade/vim-gitgutter'
-  Plugin 'majutsushi/tagbar'
-
-  Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-  " required:
-  " $ yarn global add vim-node-rpc
-  " adding sources:
-  " run :CocInstall coc-gocode
-  " run :CocInstall coc-ultisnips
-
-  Plugin 'christoomey/vim-tmux-navigator'
-
   Plugin 'jiangmiao/auto-pairs'
+  Plugin 'junegunn/fzf.vim'
+  Plugin 'majutsushi/tagbar'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'SirVer/ultisnips'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-commentary.git'
   Plugin 'tpope/vim-fugitive'
@@ -53,6 +34,28 @@ call vundle#begin()
   Plugin 'tpope/vim-sensible'
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-unimpaired'
+  " required:
+  " $ yarn global add vim-node-rpc
+  " adding sources:
+  " run :CocInstall coc-gocode
+  " run :CocInstall coc-ultisnips
+  Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+  " lang
+  Plugin 'fatih/vim-go'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'hashivim/vim-terraform'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'rust-lang/rust.vim'
+
+  " themes
+  Plugin 'dracula/vim'
+  Plugin 'fatih/molokai'
+
+  " tmux
+  Plugin 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
