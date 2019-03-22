@@ -70,15 +70,15 @@ export GITHUB_TOKEN=$GITHUB_TOKEN_REPO_SCOPE
 
 eval "$(hub alias -s)"
 
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
 # git helpers
 alias gitclean="git br --merged | grep -v master | xargs git br -d"
 alias githead="git log | head -1 | awk '{print \$2}'"
 alias ghcp="githead | tr -d '\n' | pbcopy"
 
 export CLICOLOR=1
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='fd --type f'
