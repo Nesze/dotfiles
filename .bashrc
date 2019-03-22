@@ -61,8 +61,14 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
 # Bash 4.x features
 shopt -s globstar
 
-# Source brew envs
-source $HOME/.brew
+# Source envs
+source $HOME/.envs
+
+export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN_NO_SCOPE
+# hub
+export GITHUB_TOKEN=$GITHUB_TOKEN_REPO_SCOPE
+
+eval "$(hub alias -s)"
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
