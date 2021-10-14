@@ -34,11 +34,14 @@ call vundle#begin()
   Plugin 'tpope/vim-sensible'
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-unimpaired'
+  Plugin 'mzlogin/vim-markdown-toc'
   " required:
   " $ yarn global add vim-node-rpc
   " adding sources:
   " run :CocInstall coc-gocode
   " run :CocInstall coc-ultisnips
+  " after plugin update:
+  " rerun :call coc#util#install()
   Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
   " lang
@@ -48,6 +51,7 @@ call vundle#begin()
   Plugin 'mxw/vim-jsx'
   Plugin 'pangloss/vim-javascript'
   Plugin 'rust-lang/rust.vim'
+  Plugin 'uarun/vim-protobuf'
 
   " themes
   Plugin 'dracula/vim'
@@ -118,6 +122,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
+
 " bindings
 au FileType go nmap <leader>r <Plug>(go-rename)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -159,6 +164,8 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " no more :w before running go cmds (build/run/test)
 set autowrite
 
+let g:go_rename_command = 'gopls'
+
 " disable location list by using quickfix window instead
 let g:go_list_type = "quickfix"
 
@@ -173,11 +180,13 @@ let g:go_metalinter_deadline = "5s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
-set updatetime=100
+set updatetime=200
 
 let g:go_decls_includes = "func,type"
 
 let g:go_gocode_propose_source = 0
+
+" let g:go_addtags_transform = "camelcase"
 
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
@@ -233,8 +242,33 @@ let g:tagbar_type_go = {
 
 nmap <F8> :TagbarToggle<CR>
 
+"statusline
 
-set statusline+=%f
+set laststatus=2
+
+" function! GitBranch()
+"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
+
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
+
+" set statusline=
+" set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+" set statusline+=%#LineNr#
+" set statusline+=\ %f
+" set statusline+=%m\
+" set statusline+=%=
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&fileformat}\]
+" set statusline+=\ %p%%
+" set statusline+=\ %l:%c
+" set statusline+=\ 
 
 " autocmd FileType go let completefunc=&omnifunc
 

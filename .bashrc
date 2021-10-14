@@ -3,12 +3,12 @@ export GOPATH="$HOME/Dev/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+
 #Other vars
 export EDITOR="vim"
 
 #brew --prefix is painfully slow, use absolute paths instead:
-if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-    . /usr/local/share/bash-completion/bash_completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then . /usr/local/share/bash-completion/bash_completion
 fi
 
 #brew doctor suggestion: brew installs executables under this path as well"
@@ -48,7 +48,8 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 #kubernetes
 # source <(kubectl completion bash)
 alias k="kubectl"
-complete -o default -F __start_kubectl k
+# complete -o default -F __start_kubectl k
+# complete -F _complete_alias k
 
 # Git branch in prompt.
 parse_git_branch() {
@@ -56,7 +57,13 @@ parse_git_branch() {
 }
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_COLOR="green"
+export KUBE_PS1_SYMBOL_ENABLE="false"
 export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
+
+# Git autocomplete
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+  . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 
 # Bash 4.x features
 shopt -s globstar
@@ -65,13 +72,22 @@ shopt -s globstar
 source $HOME/.envs
 
 export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN_NO_SCOPE
-# hub
-export GITHUB_TOKEN=$GITHUB_TOKEN_REPO_SCOPE
 
-eval "$(hub alias -s)"
-
+# gh
+export GITHUB_TOKEN=$GITHUB_TOKEN_REPO_READORG
 # git helpers
-alias gitclean="git br --merged | grep -v master | xargs git br -d"
+gitclean() {
+  git br --merged | grep -v -E "master|main|$(git branch --show-current)" | xargs git br -d
+}
+
+gitcoma() {
+  git checkout $(git branch | cut -c 3- | grep -E '^master$|^main$')
+}
+
+gitfresh() {
+  gitcoma && git pull && gitclean
+}
+
 alias githead="git log | head -1 | awk '{print \$2}'"
 alias ghcp="githead | tr -d '\n' | pbcopy"
 
@@ -86,3 +102,25 @@ export FZF_TMUX=1
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+connect_to_jumpboxes() {
+    autossh -f -M 0 -Nn -D 127.0.0.1:2424 jumpbox.dev.uw.systems
+    autossh -f -M 0 -Nn -D 127.0.0.1:2425 jumpbox.prod.uw.systems
+    # autossh -f -M 0 -Nn -D 127.0.0.1:2434 jumpbox.dev.gcp.uw.systems
+    # autossh -f -M 0 -Nn -D 127.0.0.1:2435 jumpbox.prod.gcp.uw.systems
+}
+
+export GOOGLE_CREDENTIALS=/root/.config/gcloud/uw-terraform-sa.json
+
+source $HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+function certg() {
+  printf "openssl s_client -showcerts -servername $1 -connect ${1}:443 </dev/null"
+  openssl s_client -showcerts -servername $1 -connect ${1}:443 </dev/null
+}

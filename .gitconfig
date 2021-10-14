@@ -9,8 +9,11 @@
 [core]
 	editor = /usr/local/bin/vim
 	excludesfile = /Users/zoltanbodor/.gitignore
+	attributesfile = /Users/zoltanbodor/.gitattributes
+	; pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	co = checkout
+	re = restore
 	ci = commit
 	st = status
 	stu = status -uno
@@ -46,3 +49,6 @@
 	required = true
 [diff "strongbox"]
 	textconv = strongbox -diff
+
+[pull]
+	rebase = false
