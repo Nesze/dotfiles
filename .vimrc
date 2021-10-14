@@ -2,71 +2,50 @@
 
 set nocompatible
 
-" Settings from vundle --->
-
-" filetype must be turned off before loading vundle (TODO check this is still necessary)
-" required
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
-
 " alternatively, pass a path where Vundle should install plugins
 " e.g. call vundle#begin('~/some/path/here')
-call vundle#begin()
-  " let Vundle manage Vundle, required
-  Plugin 'gmarik/Vundle.vim'
-
+call plug#begin()
   " general
-  Plugin 'AndrewRadev/splitjoin.vim'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'jiangmiao/auto-pairs'
-  Plugin 'junegunn/fzf.vim'
-  Plugin 'majutsushi/tagbar'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'tpope/vim-abolish'
-  Plugin 'tpope/vim-commentary.git'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'tpope/vim-rhubarb'
-  Plugin 'tpope/vim-sensible'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-unimpaired'
-  Plugin 'mzlogin/vim-markdown-toc'
-  " required:
-  " $ yarn global add vim-node-rpc
-  " adding sources:
-  " run :CocInstall coc-gocode
-  " run :CocInstall coc-ultisnips
-  " after plugin update:
-  " rerun :call coc#util#install()
-  Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'scrooloose/nerdtree'
+  Plug 'SirVer/ultisnips'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'mzlogin/vim-markdown-toc'
+  Plug 'neoclide/coc.nvim', {'branch':'release'}
 
   " lang
-  Plugin 'fatih/vim-go'
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'hashivim/vim-terraform'
-  Plugin 'mxw/vim-jsx'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'rust-lang/rust.vim'
-  Plugin 'uarun/vim-protobuf'
+  Plug 'fatih/vim-go'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'hashivim/vim-terraform'
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
+  Plug 'rust-lang/rust.vim'
+  Plug 'uarun/vim-protobuf'
 
   " themes
-  Plugin 'dracula/vim'
-  Plugin 'fatih/molokai'
+  Plug 'dracula/vim'
+  Plug 'fatih/molokai'
 
   " tmux
-  Plugin 'christoomey/vim-tmux-navigator'
+  Plug 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
-call vundle#end()
+call plug#end()
 
 " required
 filetype plugin indent on
-
-" <--- End of vundle settings
 
 " TODO why "\<Tab>" does not work
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -164,19 +143,16 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " no more :w before running go cmds (build/run/test)
 set autowrite
 
-let g:go_rename_command = 'gopls'
-
+let g:go_gopls_gofumpt = v:true
 " disable location list by using quickfix window instead
-let g:go_list_type = "quickfix"
+let g:go_list_type = 'quickfix'
 
 let g:go_test_timeout = '10s'
-
-let g:go_fmt_command = "goimports"
-
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_command = 'golangci-lint'
+let g:go_metalinter_enabled = ['vet', 'revive', 'unconvert','unparam', 'gofmt', 'unused']
 let g:go_metalinter_autosave = 0
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_deadline = "5s"
+let g:go_metalinter_autosave_enabled = ['vet', 'revive']
+let g:go_metalinter_deadline = "10s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
