@@ -1,0 +1,19 @@
+{
+	"suggest.noselect": false,
+	"diagnostic.errorSign": "✘",
+	"diagnostic.warningSign": "!",
+	"diagnostic.infoSign": "?",
+	"diagnostic.checkCurrentLine": true,
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"args": ["-remote=auto"],
+			"rootPatterns": [
+				"go.mod"
+			],
+			"filetypes": [
+				"go"
+			]
+		}
+	}
+}

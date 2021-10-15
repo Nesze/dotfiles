@@ -47,6 +47,11 @@ call plug#end()
 " required
 filetype plugin indent on
 
+
+" coc
+" completion improvements
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
 " TODO why "\<Tab>" does not work
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
