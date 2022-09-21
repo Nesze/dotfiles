@@ -1,8 +1,9 @@
 {
 	"suggest.noselect": false,
-	"diagnostic.errorSign": "✘",
-	"diagnostic.warningSign": "!",
-	"diagnostic.infoSign": "?",
+	"diagnostic.errorSign": "✖",
+	"diagnostic.warningSign": "⚠",
+	"diagnostic.infoSign": "ℹ",
+	"diagnostic.hintSign": "➤",
 	"diagnostic.checkCurrentLine": true,
 	"languageserver": {
 		"golang": {
