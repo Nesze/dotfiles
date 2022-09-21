@@ -44,6 +44,7 @@ alias digg='dig +noall +answer'
 
 # dotfiles cfg
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 #kubernetes
 # source <(kubectl completion bash)
