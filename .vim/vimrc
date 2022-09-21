@@ -1,9 +1,6 @@
 " Started off from vimrc_example.vim
 
-
-" alternatively, pass a path where Vundle should install plugins
-" e.g. call vundle#begin('~/some/path/here')
-call plug#begin()
+call plug#begin('~/.vim/plugged')
   " general
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'airblade/vim-gitgutter'
