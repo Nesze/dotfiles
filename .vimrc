@@ -63,6 +63,11 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 inoremap <expr> <c-j> "\<C-n>"
 inoremap <expr> <c-k> "\<C-p>"
 
+" fzf remappings
+nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+nnoremap <silent> <leader>B :Buffers<CR>
+
 set completeopt-=preview
 
 " allow backspacing over everything in insert mode
@@ -139,8 +144,6 @@ function! s:build_go_files()
   endif
 endfunction
 au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 " tab = 4 space (default is 8)
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
