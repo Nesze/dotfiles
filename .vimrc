@@ -1,6 +1,5 @@
 " Started off from vimrc_example.vim
 
-set nocompatible
 
 " alternatively, pass a path where Vundle should install plugins
 " e.g. call vundle#begin('~/some/path/here')
@@ -81,10 +80,15 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set wildmenu		" visual autocomplete for cmd menu
 set lazyredraw		" redraw only when we need to
+set hidden		" possibility to have more than one unsaved buffers
 
 set undodir=~/.vim/tmp/.undo//
 set backupdir=~/.vim/tmp/.backup//
 set directory=~/.vim/tmp/.swp//
+
+" `matchit.vim` is built-in so let's enable it!
+" Hit `%` on `if` to jump to `else`.
+runtime macros/matchit.vim
 
 " hashivim
 let g:terraform_fmt_on_save = 1
@@ -272,10 +276,9 @@ endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
+if &t_Co >= 256 || has("gui_running")
   syntax on
   
-  "set t_Co=256
   let g:molokai_original = 1
   let g:rehash256 = 1
   colorscheme molokai
