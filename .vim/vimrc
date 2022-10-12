@@ -159,14 +159,13 @@ set incsearch		" do incremental searching
 set wildmenu		" visual autocomplete for cmd menu
 set lazyredraw		" redraw only when we need to
 set hidden		" possibility to have more than one unsaved buffers
+set cmdheight=2         " bigger display for messages
+set shortmess+=c	" don't give |ins-completion-menu| messages.
+set signcolumn=yes	" always show signcolumns
 
 set undodir=~/.vim/tmp/.undo//
 set backupdir=~/.vim/tmp/.backup//
 set directory=~/.vim/tmp/.swp//
-
-" `matchit.vim` is built-in so let's enable it!
-" Hit `%` on `if` to jump to `else`.
-runtime macros/matchit.vim
 
 " hashivim
 let g:terraform_fmt_on_save = 1
@@ -246,7 +245,7 @@ let g:go_metalinter_deadline = "10s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
-set updatetime=200
+set updatetime=300
 
 let g:go_decls_includes = "func,type"
 
