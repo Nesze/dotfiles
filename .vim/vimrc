@@ -2,13 +2,10 @@
 
 call plug#begin('~/.vim/plugged')
   " general
-  Plug 'AndrewRadev/splitjoin.vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'majutsushi/tagbar'
-  Plug 'scrooloose/nerdtree'
   Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
@@ -18,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-eunuch'
   Plug 'mzlogin/vim-markdown-toc'
   Plug 'neoclide/coc.nvim', {'branch':'release'}
 
