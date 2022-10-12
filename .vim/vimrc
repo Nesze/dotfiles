@@ -192,6 +192,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
+let g:go_def_mapping_enabled = 0
 
 " bindings
 au FileType go nmap <leader>r <Plug>(go-rename)
