@@ -1,10 +1,12 @@
+# default editor
+export EDITOR="vim"
+# enable terminal coloring
+export CLICOLOR=1
+
 #Golang variables
 export GOPATH="$HOME/Dev/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
-
-#Other vars
-export EDITOR="vim"
 
 # brew
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -14,8 +16,8 @@ export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN_NO_SCOPE
 
 export BREW_PREFIX=`brew --prefix`
 
-if [ -f $BREW_PREFIX/share/bash-completion/bash_completion ]; then . $BREW_PREFIX/share/bash-completion/bash_completion
-fi
+# bash-completion
+[[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 #dev binaries
 export PATH="$HOME/Dev/bin:$PATH"
@@ -95,9 +97,6 @@ gitfresh() {
 alias githead="git log | head -1 | awk '{print \$2}'"
 alias ghcp="githead | tr -d '\n' | pbcopy"
 
-# ??
-export CLICOLOR=1
-
 # autojump
 [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 
@@ -113,7 +112,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # uw
 export GOOGLE_CREDENTIALS=/root/.config/gcloud/uw-terraform-sa.json
 
-# ??
+# broot - directory tree explorer
 source $HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # rust
