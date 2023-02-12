@@ -30,13 +30,18 @@ export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN_NO_SCOPE
 export BREW_PREFIX=`brew --prefix`
 
-# bash-completion
-[[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
-
 # short of knowing how to actually configure OSX, here's a hacky way to use
 # GNU manpages for programs that are GNU ones, and fallback to OSX manpages otherwise
 alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
 MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# bash-completion
+[[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
+
+# git autocomplete; for some reason the above doesn't source it, so need to do it explicitly
+if [ -f $BREW_PREFIX/etc/bash_completion.d/git-completion.bash ]; then
+  . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
+fi
 
 # golang
 export GOPATH="$HOME/Dev/go"
@@ -65,11 +70,6 @@ source "$BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_SYMBOL_COLOR="green"
 export KUBE_PS1_SYMBOL_ENABLE="false"
 export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$(kube_ps1)\$ "
-
-# git autocomplete
-if [ -f $BREW_PREFIX/etc/bash_completion.d/git-completion.bash ]; then
-  . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
-fi
 
 # gh
 export GITHUB_TOKEN=$GITHUB_TOKEN_REPO_READORG
