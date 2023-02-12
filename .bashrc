@@ -53,11 +53,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
-#kubernetes
-# source <(kubectl completion bash)
+# kubectl
 alias k="kubectl"
-# complete -o default -F __start_kubectl k
-# complete -F _complete_alias k
+complete -o default -F __start_kubectl k
 
 # customize prompt '>' / '$'
 parse_git_branch() {
