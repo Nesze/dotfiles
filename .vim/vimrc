@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-eunuch'
+  " Plug 'tpope/vim-flagship'
   Plug 'mzlogin/vim-markdown-toc'
   Plug 'neoclide/coc.nvim', {'branch':'release'}
 
@@ -238,11 +239,6 @@ let g:go_gopls_gofumpt = v:true
 let g:go_list_type = 'quickfix'
 
 let g:go_test_timeout = '10s'
-let g:go_metalinter_command = 'golangci-lint'
-let g:go_metalinter_enabled = ['vet', 'revive', 'unconvert','unparam', 'gofmt', 'unused']
-let g:go_metalinter_autosave = 0
-let g:go_metalinter_autosave_enabled = ['vet', 'revive']
-let g:go_metalinter_deadline = "10s"
 
 " show type info in status bar
 let g:go_auto_type_info = 1
@@ -310,7 +306,8 @@ nmap <F8> :TagbarToggle<CR>
 
 "statusline
 set laststatus=2
-
+set statusline=
+" set statusline+=%#PmenuSel#
 " function! GitBranch()
 "   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 " endfunction
@@ -319,9 +316,7 @@ set laststatus=2
 "   let l:branchname = GitBranch()
 "   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 " endfunction
-
-set statusline=
-" set statusline+=%#PmenuSel#
+"
 " XXX Investigate: this causes navigation in normal mode to overwrite / replace text with used keys (i.e. h,j,k,l)
 " set statusline+=%{StatuslineGit()}
 set statusline+=%#StatusLine#
@@ -336,18 +331,13 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
 
+"tabline
 set showtabline=2
 
+" let g:tablabel = "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
+set title titlestring=%{getcwd()}
+
 " autocmd FileType go let completefunc=&omnifunc
-
-" nerdtree bindings
-map <C-\> :NERDTreeToggle<CR>
-" nerdtree options
-" unideal / would be better to re-use gitignore
-let NERDTreeIgnore=['\--$', '\~$']
-
-" syncn NERDTree with opened file
-"autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -415,6 +405,10 @@ set clipboard=unnamed
 " 'cd' towards the directory in which the current file is edited
 " but only change the path for the current window
 nnoremap <leader>cd :lcd %:h<CR>
+
+" natural splitting placement behaviour
+set splitbelow
+set splitright
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
