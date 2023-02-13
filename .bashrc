@@ -38,11 +38,6 @@ MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 # bash-completion
 [[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 
-# git autocomplete; for some reason the above doesn't source it, so need to do it explicitly
-if [ -f $BREW_PREFIX/etc/bash_completion.d/git-completion.bash ]; then
-  . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
-fi
-
 # golang
 export GOPATH="$HOME/Dev/go"
 export GOBIN="$GOPATH/bin"
