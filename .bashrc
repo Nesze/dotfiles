@@ -1,5 +1,6 @@
 # default editor
-export EDITOR="vim"
+export EDITOR="nvim"
+alias vim=nvim
 # enable terminal coloring
 export CLICOLOR=1
 # color improvement
