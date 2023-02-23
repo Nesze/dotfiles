@@ -108,4 +108,5 @@ function certg() {
 }
 
 # uw
+export AWS_PROFILE=iam-dev
 export GOOGLE_CREDENTIALS=/root/.config/gcloud/uw-terraform-sa.json
