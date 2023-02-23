@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-eunuch'
+  Plug 'github/copilot.vim'
   " Plug 'tpope/vim-flagship'
   Plug 'mzlogin/vim-markdown-toc'
   Plug 'neoclide/coc.nvim', {'branch':'release'}
