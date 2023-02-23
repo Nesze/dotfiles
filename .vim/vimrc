@@ -45,8 +45,11 @@ filetype plugin indent on
 
 
 " coc
-" completion improvements
 
+" keep track of installed coc extensions
+let g:coc_global_extensions = ['coc-json',  'coc-snippets', 'coc-sql']
+
+" completion improvements
 " don't forget to remap UltiSnips default <TAB> cmd ?
 let g:UltiSnipsExpandTrigger = '<C-Tab>'
 
