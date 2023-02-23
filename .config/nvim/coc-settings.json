@@ -1,0 +1,17 @@
+{
+	"coc.preferences.extensionUpdateCheck": "weekly",
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": [
+				"go.mod"
+			],
+			"filetypes": [ "go"
+			]
+		}
+	},
+	"snippets.ultisnips.directories": [
+		"UltiSnips",
+		"gosnippets/UltiSnips"
+	]
+}
